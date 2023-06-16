@@ -19,7 +19,8 @@ def check_cookie_changes(url):
     # Capture the updated state of the cookies
     updated_cookies = driver.get_cookies()
 
-    # Compare initial and updated cookie values to identify changes
+    # Compare initial and updated cookie values to identify changes (if any)
+    # FIXME: find a site that disrespects user's choices to verify that changed cookies are being written to CSV
     changed_cookies = []
     for initial_cookie in initial_cookies:
         cookie_name = initial_cookie['name']
@@ -54,5 +55,5 @@ def check_cookie_changes(url):
     # Close the browser
     driver.quit()
 
-# Example usage:
+# TODO: replace URL with the one you're checking
 check_cookie_changes('https://www.lefigaro.fr/')
