@@ -44,6 +44,8 @@ def check_cookie_changes(url):
             fieldnames = ['URL', 'Cookie Name', 'Initial Value', 'Updated Value']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
+            # FIXME: write new rows instead of replacing previous rows
+            # writer.write("\n")
             for changed_cookie in changed_cookies:
                 changed_cookie['URL'] = url
                 writer.writerow(changed_cookie)
@@ -56,4 +58,4 @@ def check_cookie_changes(url):
     driver.quit()
 
 # TODO: replace URL with the one you're checking
-check_cookie_changes('https://www.lefigaro.fr/')
+check_cookie_changes('https://www.isipp.com/')
